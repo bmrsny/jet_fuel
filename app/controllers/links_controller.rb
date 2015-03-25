@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
 	def index 
-		@links = Link.all
+		@links = Link.all.order(clicks: :desc, created_at: :desc )
 	end
 
 	def show
