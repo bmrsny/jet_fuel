@@ -12,4 +12,14 @@ RSpec.describe LinksController do
 			expect(response.status).to eq(200)
     end
   end
+
+	describe "#show" do
+		it "redirects to the given url" do
+			 link = Link.create(given_url: "http://google.com", slug: "898480AHD", clicks: 2, title: "Google")
+			get :show,  id: link.id 
+
+			expect(link.given_url).to eq("http://google.com")
+			expect(response.status).to eq(302)
+		end
+	end
 end
