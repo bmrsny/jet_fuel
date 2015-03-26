@@ -3,10 +3,6 @@ class LinksController < ApplicationController
 		@links = Link.all.order(clicks: :desc, created_at: :desc )
 	end
 
-	def show
-		@link = Link.find(params[:id])
-	end
-
 	def create
 		@link = Link.new(link_params)
 		if @link.save

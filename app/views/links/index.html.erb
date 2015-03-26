@@ -1,9 +1,11 @@
-<ul>
-<% @links.each do |link|%>
-	<li>
-		Given Url: <%= truncate(link.given_url) %>
-	<%= link_to "rebit.ly/" + link.slug, link_path(link.id) %>
-	Views: <%= link.clicks %>
-	</li>
-<% end %>
-</ul>
+<div class="all-links">
+	<ul>
+		<% @links.each do |link|%>
+		<li>
+			Given Url: <%= truncate(link.given_url) %>
+			<%= link_to "rebit.ly/" + link.slug, link_path(link.id) %>
+			Views: <%= link.clicks %>
+		</li>
+		<% end %>
+	</ul>
+</div>
