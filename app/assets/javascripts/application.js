@@ -16,5 +16,33 @@
 //= require_tree .
 
 $(document).ready(function(){
+//	$('#filter-urls').click(function(){
+//		var filterBy = $('#given_url').val()
+//		var $listLinks = $('.all-links li')
+//		var searchMatch = new RegExp(filterBy, "i")
+//		$listLinks.each(function (index, element){
+//			if($(element).text().match(searchMatch)) {
+//				$(element).show();
+//			} else {
+//				$(element).hide();
+//			}
+//		});
+//	});	
 	
+	function showBySearchTerm(listLinks, searchMatch){
+		listLinks.each(function (index, element){
+			if($(element).text().match(searchMatch)) {
+				$(element).show();
+			} else {
+				$(element).hide();
+			}
+		});
+	}
+
+	$('#filter-urls').click(function(){
+		var filterBy = $('#given_url').val()
+		var $listLinks = $('.all-links li')
+		var searchMatch = new RegExp(filterBy, "i")
+		showBySearchTerm($listLinks, searchMatch);
+	});	
 });
