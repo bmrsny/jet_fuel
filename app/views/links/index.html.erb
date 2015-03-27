@@ -3,7 +3,7 @@
 <div class="all-links">
 	<ul>
 		<% @links.each do |link|%>
-		<li>
+			<li>
 			Given Url: <%= truncate(link.given_url) %>
 			<%= link_to  link.display_short_url, link_path(link.id) %>
 			Views: <%= link.clicks %>
@@ -13,8 +13,6 @@
 </div>
 
 <div class="search">
-	<%= form_tag("/links", method: "get") do %>
 		<%= text_field_tag :given_url %>
-		<%= submit_tag "Filter"%>
-	<% end%>
+		<%= submit_tag "Filter", id: "filter-urls"%>
 </div>
