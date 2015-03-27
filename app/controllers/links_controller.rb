@@ -1,6 +1,12 @@
 class LinksController < ApplicationController
 	def index 
-		@links = Link.all.order(clicks: :desc, created_at: :desc )
+		if params[:sort] == "popularity"
+			@links = Link.sort_by_popularity
+		elsif params[:sort] == "created_at"
+			@links = Link.sort_by_created_at
+		else
+			@links = Link.all
+		end
 	end
 
 	def create
