@@ -12,14 +12,17 @@ RSpec.describe "Links", :type => :request do
 			link3 = create(:link, clicks: 29)
 
 			visit root_path
-			within all(".all-links")[1] do
+			click_link "Sort by views"
+
+			within("div.all-links li:nth-child(1)") do
 				expect(page).to have_content(link3.given_url)
 			end
 
-			within all(".all-links")[2] do
+			within("div.all-links li:nth-child(2)") do
 				expect(page).to have_content(link2.given_url)
 			end
-			within all(".all-links")[3] do
+
+			within("div.all-links li:nth-child(3)") do
 				expect(page).to have_content(link1.given_url)
 			end
     end

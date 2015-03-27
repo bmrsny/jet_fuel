@@ -1,9 +1,20 @@
-<ul>
-<% @links.each do |link|%>
-	<li>
-		Given Url: <%= truncate(link.given_url) %>
-	<%= link_to "rebit.ly/" + link.slug, link_path(link.id) %>
-	Views: <%= link.clicks %>
-	</li>
-<% end %>
-</ul>
+<%= link_to "Sort by views", links_path(sort: "popularity") %>
+<%= link_to "Sort by created at", links_path(sort: "created_at") %>
+<div class="all-links">
+	<ul>
+		<% @links.each do |link|%>
+		<li>
+			Given Url: <%= truncate(link.given_url) %>
+			<%= link_to  link.display_short_url, link_path(link.id) %>
+			Views: <%= link.clicks %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+
+<div class="search">
+	<%= form_tag("/links", method: "get") do %>
+		<%= text_field_tag :given_url %>
+		<%= submit_tag "Filter"%>
+	<% end%>
+</div>
