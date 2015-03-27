@@ -12,6 +12,7 @@ class LinksController < ApplicationController
 	def create
 		@link = Link.new(link_params)
 		if @link.save
+			TitleWorker.new.async.perform(@link.given_url)	
 			flash[:notice] = "Link has been shortened"
 			redirect_to links_path
 		else
