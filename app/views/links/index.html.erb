@@ -7,6 +7,7 @@
 			Given Url: <%= truncate(link.given_url) %>
 			<%= link_to  link.display_short_url, link_path(link.id) %>
 			Views: <%= link.clicks %>
+			Title: <%= link.title %>
 		</li>
 		<% end %>
 	</ul>

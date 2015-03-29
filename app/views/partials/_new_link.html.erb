@@ -1,5 +1,5 @@
 <h1>Time to shorten that url</h1>
 <%= form_for(Link.new) do |f| %>
-	<%= 	f.text_field :given_url, placeholder: "Paste a url in to shorten", required: true %>
+	<%= 	f.url_field :given_url, placeholder: "Paste a url in to shorten", required: true %>
 	<%= 	f.submit "Shorten the url" %>
 <% end %>
