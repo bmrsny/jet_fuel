@@ -1,19 +1,36 @@
-<%= link_to "Sort by views", links_path(sort: "popularity") %>
-<%= link_to "Sort by created at", links_path(sort: "created_at") %>
-<div class="all-links">
-	<ul>
-		<% @links.each do |link|%>
-			<li>
-			Given Url: <%= truncate(link.given_url) %>
-			<%= link_to  link.display_short_url, link_path(link.id) %>
-			Views: <%= link.clicks %>
-			Title: <%= link.title %>
-		</li>
-		<% end %>
-	</ul>
-</div>
-
-<div class="search">
+<div class="search col-xs-12">
+	<div class="col-xs-3">
 		<%= text_field_tag :given_url %>
-		<%= submit_tag "Filter", id: "filter-urls"%>
+		<%= submit_tag "Filter", id: "filter-urls", class: "btn btn-default filter"%>
+	</div>
+	<div class="col-xs-2">
+		<%= link_to "Sort by views", links_path(sort: "popularity"), class: "btn btn-default" %>
+	</div>
+	<div class="col-xs-2">
+		<%= link_to "Sort by created at", links_path(sort: "created_at"), class: "btn btn-default" %><br/>
+	</div>
+</div>
+<div class="all-links col-xs-8">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Given Url</th>
+				<th>Short Url</th>
+				<th>Views</th>
+				<th>Title</th>
+			</tr>
+		</head>
+		<% @links.each do |link|%>
+			<tbody>
+				<tr>
+					<th class="url-select"><%= truncate(link.given_url) %></th>
+					<th><%= link_to  link.display_short_url, link_path(link.id) %></th>
+					<th><%= link.clicks %></th>
+					<th><%= link.title %></th>
+				</tr>
+			</body>
+		<% end %>
+	</table>
+</div>
+<div class="col-xs-4">
 </div>

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
 
 $(document).ready(function(){
@@ -41,7 +42,7 @@ $(document).ready(function(){
 
 	$('#filter-urls').click(function(){
 		var filterBy = $('#given_url').val()
-		var $listLinks = $('.all-links li')
+		var $listLinks = $('.all-links tbody tr')
 		var searchMatch = new RegExp(filterBy, "i")
 		showBySearchTerm($listLinks, searchMatch);
 	});	
