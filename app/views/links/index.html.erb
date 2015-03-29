@@ -23,7 +23,7 @@
 		<% @links.each do |link|%>
 			<tbody>
 				<tr>
-					<th><%= truncate(link.given_url) %></th>
+					<th class="url-select"><%= truncate(link.given_url) %></th>
 					<th><%= link_to  link.display_short_url, link_path(link.id) %></th>
 					<th><%= link.clicks %></th>
 					<th><%= link.title %></th>

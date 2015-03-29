@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 	$('#filter-urls').click(function(){
 		var filterBy = $('#given_url').val()
-		var $listLinks = $('.all-links li')
+		var $listLinks = $('.all-links tbody tr')
 		var searchMatch = new RegExp(filterBy, "i")
 		showBySearchTerm($listLinks, searchMatch);
 	});	
