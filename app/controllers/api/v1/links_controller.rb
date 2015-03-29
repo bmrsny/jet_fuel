@@ -20,6 +20,10 @@ class Api::V1::LinksController < ApplicationController
 		@link = Link.find(params[:id])
 		respond_with @link.update(link_params)
 	end
+
+	def destroy
+		respond_with @link = Link.find(params[:id]).destroy
+	end
 		
 	private
 

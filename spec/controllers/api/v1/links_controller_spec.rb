@@ -44,4 +44,19 @@ RSpec.describe Api::V1::LinksController, :type => :controller do
 		expect(updated_link.given_url).to eq("google.com/about")
 		expect(updated_link.title).to eq("my title1")
 	end
+
+	it "#delete" do
+		post :create, format: :json, link:{ 
+				  															given_url: "google.com",
+		      															id: 354,
+																			  title: "my title", 
+																			  slug: "KHDKDKJDKJKD", 
+																				clicks: 2
+																			}
+		link = JSON.parse(response.body)
+
+		delete :destroy, format: :json, id: link["id"]	
+
+		expect(Link.all.count).to eq(0)
+	end
 end
