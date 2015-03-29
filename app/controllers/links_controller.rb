@@ -11,13 +11,17 @@ class LinksController < ApplicationController
 	end
 
 	def create
-		#TODO find the link if it exists or create and new one
-		@link = Link.new(link_params)
-		if @link.save
-			TitleWorker.perform_async(@link.given_url)	
-			flash[:notice] = "Math-a-matical, your link has been shortened"
+		link = Link.find_by(given_url: params[:link][:given_url])
+		if link
+			flash[:notice] = "Check it out, this url already exists"
 			redirect_to links_path
 		else
+		link = Link.new(link_params)
+			if link.save
+				TitleWorker.perform_async(link.given_url)	
+				flash[:notice] = "Math-a-matical, your link has been shortened"
+				redirect_to links_path
+			end
 		end
 	end
 	

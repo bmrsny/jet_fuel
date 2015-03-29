@@ -1,5 +1,5 @@
 class Link < ActiveRecord::Base
-	#validates :given_url, uniqueness: true
+	validates :given_url, uniqueness: true, presence: true
 	after_create :generate_slug
 
 	def generate_slug
