@@ -14,17 +14,22 @@ RSpec.describe "Links", :type => :request do
 			visit root_path
 			click_link "Sort by views"
 
-			within("div.all-links li:nth-child(1)") do
+			within("div.all-links table tbody tr th:nth-child(1)") do
 				expect(page).to have_content(link3.given_url)
-			end
-
-			within("div.all-links li:nth-child(2)") do
-				expect(page).to have_content(link2.given_url)
-			end
-
-			within("div.all-links li:nth-child(3)") do
-				expect(page).to have_content(link1.given_url)
 			end
     end
   end
+
+	it "should be able to sort the links by created_at attribute" do
+	
+		link1 = create(:link, clicks: 2)
+		link2 = create(:link, given_url: "google3.com")
+
+		visit root_path
+			click_link "Sort by created at"
+
+			within("div.all-links table tbody tr th:nth-child(1)") do
+				expect(page).to have_content(link2.given_url)
+    end
+	end
 end
