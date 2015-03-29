@@ -22,4 +22,5 @@ RSpec.describe LinksController do
 			expect(response.status).to eq(302)
 		end
 	end
+
 end

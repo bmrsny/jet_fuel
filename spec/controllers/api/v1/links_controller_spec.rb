@@ -31,12 +31,17 @@ RSpec.describe Api::V1::LinksController, :type => :controller do
 		expect(response.status).to eq(201)
 	end
 
-	xit "#update" do
+	it "#update" do
 		link = create(:link, id: 554)
 		put :update, id: link.id, format: :json, link: {
 																				 given_url: "google.com/about", 
 																			   title: "my title1", 
 																				 slug: "KHtKtttttJKD", 
 																				 clicks: 6 } 
+		updated_link = Link.find(554)
+
+		expect(response.status).to eq(204)
+		expect(updated_link.given_url).to eq("google.com/about")
+		expect(updated_link.title).to eq("my title1")
 	end
 end
