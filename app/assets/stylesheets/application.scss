@@ -6,8 +6,13 @@ h1,h2,h3,h4 {
 }
 
 body {
-		background-image: url('adventure.jpg');
-		background-size: cover;
+	background-color: #fedf6b;
+}
+
+.container-fluid {
+	background-image: url('adventure.jpg');
+	margin: 66px -129px 7px 10px;
+	background-size: cover;
 }
 
 a {
@@ -16,6 +21,32 @@ a {
 
 h1 {
 	border-bottom: 1px solid #24C73A;
+	text-align: center;
 	padding: 10px;
+}
+
+.warning {
+		background-color: #00ccd3;
+		text-align: center;
+		font-size: 22px;
+		color: #fff;
+	}	
+
+.filter {
+	margin-bottom: 15px;
+}
+
+.new-url-form {
+	text-align:center;
+	margin: 11px -11px 15px -15px;
+	padding: 5%;
+	background-image: url("adv-banner.png");
+ 	background-position: center bottom; 
+	width: 104%;
+}
+
+.search-form {
+	height: 30px;
+	width: 300px;
 }
 

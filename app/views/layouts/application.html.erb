@@ -7,8 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= render 'partials/flash_messages' %> 
+	<%= render 'partials/new_link' %> 
 	<div class='container-fluid'>
-		<%= render 'partials/new_link' %> 
 		<%= yield %>
 	</div>
 </body>
