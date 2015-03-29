@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+
 	def index 
 		if params[:sort] == "popularity"
 			@links = Link.sort_by_popularity
@@ -11,7 +12,6 @@ class LinksController < ApplicationController
 
 	def create
 		#TODO find the link if it exists or create and new one
-		#
 		@link = Link.new(link_params)
 		if @link.save
 			TitleWorker.perform_async(@link.given_url)	
