@@ -31,4 +31,5 @@ group :development, :test do
 	gem 'database_cleaner'
 	gem 'launchy'
 end
+gem 'simplecov', :require => false, :group => :test
 
