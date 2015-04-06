@@ -11,7 +11,7 @@ RSpec.describe Link do
 		link1 = Link.create(given_url: "http://google.com/fishtacos")	
 		link2 = Link.create(given_url: "http://google.com/about")	
 		link3 = Link.create(given_url: "http://google.com/contact", clicks: 3)	
-		link = Link.sort_by_popularity
+		link = Link.sort_by_popularity.first
 		expect(link).to eq(link3)
 	end
 
@@ -19,6 +19,7 @@ RSpec.describe Link do
 		link1 = Link.create(given_url: "http://google.com/fishtacos")	
 		link2 = Link.create(given_url: "http://google.com/about")	
 		link3 = Link.create(given_url: "http://google.com/contact")	
+		link = Link.sort_by_created_at
 		expect(Link.all.first).to eq(link1)
 	end
 end
